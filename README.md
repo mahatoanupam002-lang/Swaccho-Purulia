@@ -54,6 +54,13 @@ npm run dev
 
 Then open http://localhost:5173.
 
+### Preview without a backend
+
+Append `?demo=1` to the URL (e.g. http://localhost:5173/?demo=1) to populate
+the UI with sample complaints across the wards — handy for previewing the
+List, Map and leaderboard without configuring Supabase. Demo mode is read-only
+and never used in normal operation.
+
 > The app still renders without Supabase configured (for UI preview), but
 > submissions are disabled until the env vars are set.
 
@@ -134,23 +141,35 @@ src/
   App.jsx                 # mobile dashboard shell, wired to live data
   components/
     Dropdown.jsx          # severity / status filter dropdown
+    SocialMenu.jsx        # header Telegram / X / Instagram dropdown
     StatCard.jsx          # unresolved / resolved / rate cards
-    WardBar.jsx           # one row of the ward leaderboard
+    WardCard.jsx          # expandable ward row (List tab)
+    WardBar.jsx           # one row of the Map leaderboard (progress bar)
     DecorativeMap.jsx     # stylized bubble "Overview" map
     MapView.jsx           # real MapLibre "Live map" (markers + ward layers)
+    MapTab.jsx            # Map tab: base map + stats/leaderboard overlay sheet
     ReportSheet.jsx       # photo + GPS + category bottom sheet (+ out-of-bounds)
+    DigestSheet.jsx       # weekly-digest subscribe bottom sheet
   lib/
     supabase.js           # Supabase client (env-driven)
     complaints.js         # compress + upload + insert + fetch + realtime
+    subscribers.js        # weekly-digest subscribe + count
     image.js              # client-side photo compression
     wards.js              # point-in-polygon ward resolution
     wardStats.js          # per-ward aggregation + severity buckets
-    i18n.js               # English / বাংলা strings + categories
+    i18n.js               # English / বাংলা strings, categories, social links
+    demo.js               # sample data for ?demo=1 preview
   data/
     purulia-wards.json    # ward boundary GeoJSON (placeholder)
 supabase/
-  schema.sql              # table + RLS + storage policies
+  schema.sql              # complaints + subscribers + RLS + storage policies
 ```
+
+### Customising
+
+- **Social links** — edit `SOCIAL_LINKS` in `src/lib/i18n.js` with the real
+  Swaccho Purulia handles (currently placeholders).
+- **Severity thresholds** — tune `severityOf()` in `src/lib/wardStats.js`.
 
 ## License
 

@@ -21,12 +21,13 @@ export const SEV_RANK = { critical: 4, severe: 3, moderate: 2, minor: 1 };
 export function buildWardStats(complaints, { includeEmpty = false } = {}) {
   const byId = new Map();
 
-  // Seed every known ward so metadata (name, councillor) is available.
+  // Seed every known ward so metadata (name, zone, councillor) is available.
   for (const f of wardFeatures) {
     const p = f.properties;
     byId.set(p.ward_id, {
       no: p.ward_id,
       name: p.ward_name,
+      zone: p.zone || '',
       councillor: p.mla || '—',
       reports: 0,
       unresolved: 0,
@@ -41,6 +42,7 @@ export function buildWardStats(complaints, { includeEmpty = false } = {}) {
       row = {
         no: c.ward_id ?? '—',
         name: c.ward_name || 'Unmapped',
+        zone: '',
         councillor: c.mla || '—',
         reports: 0,
         unresolved: 0,
@@ -61,7 +63,8 @@ export function buildWardStats(complaints, { includeEmpty = false } = {}) {
     r.sev = severityOf(r.unresolved);
   }
 
-  rows.sort((a, b) => b.reports - a.reports);
+  // Most reports first; ties broken by ward number for a stable directory order.
+  rows.sort((a, b) => b.reports - a.reports || (a.no || 0) - (b.no || 0));
   return rows;
 }
 

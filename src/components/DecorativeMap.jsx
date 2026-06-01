@@ -10,12 +10,17 @@ const POSITIONS = [
   { x: 42, y: 72 }, { x: 72, y: 72 }, { x: 62, y: 82 }, { x: 80, y: 30 },
 ];
 
-export default function DecorativeMap({ wardStats, totals, t }) {
-  const top = wardStats.slice(0, POSITIONS.length);
+export default function DecorativeMap({ wardStats, totals, t, fill = false }) {
+  const top = wardStats.filter((w) => w.reports > 0).slice(0, POSITIONS.length);
   const max = top.reduce((m, w) => Math.max(m, w.reports), 1);
 
+  const cls = fill
+    ? 'absolute inset-0 overflow-hidden bg-stone-100'
+    : 'relative w-full rounded-3xl overflow-hidden bg-stone-100';
+  const style = fill ? undefined : { height: 520 };
+
   return (
-    <div className="relative w-full rounded-3xl overflow-hidden bg-stone-100" style={{ height: 520 }}>
+    <div className={cls} style={style}>
       <div className="absolute top-4 left-4 z-10 bg-white rounded-2xl shadow px-5 py-3 flex items-center gap-4">
         <span>
           <span className="text-red-600 font-bold text-xl font-mono">{totals.unresolved}</span>{' '}

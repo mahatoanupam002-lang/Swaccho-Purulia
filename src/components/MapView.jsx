@@ -27,7 +27,7 @@ const OSM_STYLE = {
   layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
 };
 
-export default function MapView({ complaints }) {
+export default function MapView({ complaints, fill = false }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const markersRef = useRef([]);
@@ -114,6 +114,9 @@ export default function MapView({ complaints }) {
     }
   }, [complaints]);
 
+  if (fill) {
+    return <div ref={containerRef} className="absolute inset-0" />;
+  }
   return (
     <div className="relative w-full rounded-3xl overflow-hidden border border-stone-200" style={{ height: 520 }}>
       <div ref={containerRef} className="absolute inset-0" />
