@@ -12,22 +12,30 @@ Mirrors the NammaKasa lightweight, serverless approach:
 
 | Layer        | Tech                                          |
 | ------------ | --------------------------------------------- |
-| Frontend     | React + Vite                                  |
+| Frontend     | React + Vite + Tailwind CSS                   |
 | Map          | MapLibre GL + OpenStreetMap raster tiles      |
 | Database/Auth| Supabase (PostgreSQL + RLS)                   |
 | Storage      | Supabase Storage (`complaint-photos` bucket)  |
 | Spatial      | Client-side point-in-polygon vs ward GeoJSON  |
 
+The UI is a mobile-first dashboard with a **bilingual English / বাংলা** toggle,
+severity & status filters, a ward leaderboard, stat cards, and a Map tab that
+toggles between a stylized **Overview** (bubble heat-cluster) and the real
+interactive **Live map**.
+
 ### Workflow
 
-1. **Anonymous submission** — user snaps a photo; the browser grabs live GPS
-   coordinates and uploads the image to the Supabase Storage bucket.
+1. **Anonymous submission** — user snaps a photo; the browser grabs live GPS.
+   The photo is **compressed/resized client-side** (`src/lib/image.js`) before
+   being uploaded to the Supabase Storage bucket, to save storage and speed up
+   submissions on slow connections.
 2. **Spatial mapping** — coordinates are tested against the ward boundary
    GeoJSON (`src/data/purulia-wards.json`) to resolve the ward, MLA and MP.
-   See `src/lib/wards.js`.
+   See `src/lib/wards.js`. If the location falls outside all mapped wards, the
+   report sheet shows an "outside Purulia limits" notice.
 3. **Data integrity** — the mapped complaint (image URL, ward id, official
    details) is inserted into the `complaints` table, powering the public map
-   (`src/components/MapView.jsx`) and ward leaderboard.
+   and ward leaderboard (`src/lib/wardStats.js` aggregates per-ward stats).
 4. **Live updates** — Supabase Realtime streams new/updated complaints to every
    open browser, so the map and leaderboard refresh instantly without a reload
    (`subscribeToComplaints` in `src/lib/complaints.js`).
@@ -123,16 +131,21 @@ officials against ECI / municipality records.
 
 ```
 src/
-  App.jsx                 # tab shell (Report / Map / Wards)
+  App.jsx                 # mobile dashboard shell, wired to live data
   components/
-    Header.jsx
-    ReportForm.jsx        # photo + GPS + category → submitComplaint()
-    MapView.jsx           # MapLibre map, ward layers, complaint markers
-    Leaderboard.jsx       # per-ward report ranking
+    Dropdown.jsx          # severity / status filter dropdown
+    StatCard.jsx          # unresolved / resolved / rate cards
+    WardBar.jsx           # one row of the ward leaderboard
+    DecorativeMap.jsx     # stylized bubble "Overview" map
+    MapView.jsx           # real MapLibre "Live map" (markers + ward layers)
+    ReportSheet.jsx       # photo + GPS + category bottom sheet (+ out-of-bounds)
   lib/
     supabase.js           # Supabase client (env-driven)
-    complaints.js         # upload + insert + fetch + leaderboard aggregation
+    complaints.js         # compress + upload + insert + fetch + realtime
+    image.js              # client-side photo compression
     wards.js              # point-in-polygon ward resolution
+    wardStats.js          # per-ward aggregation + severity buckets
+    i18n.js               # English / বাংলা strings + categories
   data/
     purulia-wards.json    # ward boundary GeoJSON (placeholder)
 supabase/

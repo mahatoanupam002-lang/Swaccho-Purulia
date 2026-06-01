@@ -115,8 +115,8 @@ export default function MapView({ complaints }) {
   }, [complaints]);
 
   return (
-    <div className="map-wrap">
-      <div id="map" ref={containerRef} />
+    <div className="relative w-full rounded-3xl overflow-hidden border border-stone-200" style={{ height: 520 }}>
+      <div ref={containerRef} className="absolute inset-0" />
     </div>
   );
 }
