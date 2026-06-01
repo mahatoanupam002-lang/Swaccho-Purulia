@@ -60,23 +60,19 @@ Then open http://localhost:5173.
 
 ## Deployment (auto-deploy to Vercel)
 
-[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) deploys to the
-`swaccho-purulia` Vercel project on every change — no manual step:
+The repo is connected to the `swaccho-purulia` Vercel project via Vercel's
+**native Git integration**, so deploys are fully automatic — no GitHub Actions
+workflow or `VERCEL_TOKEN` needed:
 
 - **push to `main`** → production deploy (the live website)
 - **pull request to `main`** → preview deploy (review the change before merge)
 
-One-time setup:
+`vercel.json` pins the Vite framework and the SPA rewrite.
 
-1. **GitHub secret** — add `VERCEL_TOKEN` (a Vercel access token) under
-   *Settings → Secrets and variables → Actions*. The org and project IDs are
-   already baked into the workflow `env`.
-2. **Vercel project env vars** — in the Vercel project settings, add
-   `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` and `VITE_SUPABASE_BUCKET`.
-   `vercel build` pulls these at build time so the deployed site talks to
-   Supabase. (Vite inlines `VITE_*` vars into the bundle, so use the anon key.)
-
-After that, merging to `main` automatically publishes to the live site.
+One-time setup — **Vercel project env vars**: in the Vercel project settings
+(Settings → Environment Variables) add `VITE_SUPABASE_URL`,
+`VITE_SUPABASE_ANON_KEY` and `VITE_SUPABASE_BUCKET` so the built site talks to
+Supabase. (Vite inlines `VITE_*` vars into the bundle, so use the anon key.)
 
 ## Ward boundary data ⚠️
 
