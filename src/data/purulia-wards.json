@@ -1,0 +1,857 @@
+{
+  "type": "FeatureCollection",
+  "name": "purulia_wards_placeholder",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 1,
+        "ward_name": "Ward 1",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3425,
+              23.3095
+            ],
+            [
+              86.3515,
+              23.3095
+            ],
+            [
+              86.3515,
+              23.3185
+            ],
+            [
+              86.3425,
+              23.3185
+            ],
+            [
+              86.3425,
+              23.3095
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 2,
+        "ward_name": "Ward 2",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3515,
+              23.3095
+            ],
+            [
+              86.3605,
+              23.3095
+            ],
+            [
+              86.3605,
+              23.3185
+            ],
+            [
+              86.3515,
+              23.3185
+            ],
+            [
+              86.3515,
+              23.3095
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 3,
+        "ward_name": "Ward 3",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3605,
+              23.3095
+            ],
+            [
+              86.3695,
+              23.3095
+            ],
+            [
+              86.3695,
+              23.3185
+            ],
+            [
+              86.3605,
+              23.3185
+            ],
+            [
+              86.3605,
+              23.3095
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 4,
+        "ward_name": "Ward 4",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3695,
+              23.3095
+            ],
+            [
+              86.3785,
+              23.3095
+            ],
+            [
+              86.3785,
+              23.3185
+            ],
+            [
+              86.3695,
+              23.3185
+            ],
+            [
+              86.3695,
+              23.3095
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 5,
+        "ward_name": "Ward 5",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3785,
+              23.3095
+            ],
+            [
+              86.3875,
+              23.3095
+            ],
+            [
+              86.3875,
+              23.3185
+            ],
+            [
+              86.3785,
+              23.3185
+            ],
+            [
+              86.3785,
+              23.3095
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 6,
+        "ward_name": "Ward 6",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3425,
+              23.3185
+            ],
+            [
+              86.3515,
+              23.3185
+            ],
+            [
+              86.3515,
+              23.3275
+            ],
+            [
+              86.3425,
+              23.3275
+            ],
+            [
+              86.3425,
+              23.3185
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 7,
+        "ward_name": "Ward 7",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3515,
+              23.3185
+            ],
+            [
+              86.3605,
+              23.3185
+            ],
+            [
+              86.3605,
+              23.3275
+            ],
+            [
+              86.3515,
+              23.3275
+            ],
+            [
+              86.3515,
+              23.3185
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 8,
+        "ward_name": "Ward 8",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3605,
+              23.3185
+            ],
+            [
+              86.3695,
+              23.3185
+            ],
+            [
+              86.3695,
+              23.3275
+            ],
+            [
+              86.3605,
+              23.3275
+            ],
+            [
+              86.3605,
+              23.3185
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 9,
+        "ward_name": "Ward 9",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3695,
+              23.3185
+            ],
+            [
+              86.3785,
+              23.3185
+            ],
+            [
+              86.3785,
+              23.3275
+            ],
+            [
+              86.3695,
+              23.3275
+            ],
+            [
+              86.3695,
+              23.3185
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 10,
+        "ward_name": "Ward 10",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3785,
+              23.3185
+            ],
+            [
+              86.3875,
+              23.3185
+            ],
+            [
+              86.3875,
+              23.3275
+            ],
+            [
+              86.3785,
+              23.3275
+            ],
+            [
+              86.3785,
+              23.3185
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 11,
+        "ward_name": "Ward 11",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3425,
+              23.3275
+            ],
+            [
+              86.3515,
+              23.3275
+            ],
+            [
+              86.3515,
+              23.3365
+            ],
+            [
+              86.3425,
+              23.3365
+            ],
+            [
+              86.3425,
+              23.3275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 12,
+        "ward_name": "Ward 12",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3515,
+              23.3275
+            ],
+            [
+              86.3605,
+              23.3275
+            ],
+            [
+              86.3605,
+              23.3365
+            ],
+            [
+              86.3515,
+              23.3365
+            ],
+            [
+              86.3515,
+              23.3275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 13,
+        "ward_name": "Ward 13",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3605,
+              23.3275
+            ],
+            [
+              86.3695,
+              23.3275
+            ],
+            [
+              86.3695,
+              23.3365
+            ],
+            [
+              86.3605,
+              23.3365
+            ],
+            [
+              86.3605,
+              23.3275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 14,
+        "ward_name": "Ward 14",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3695,
+              23.3275
+            ],
+            [
+              86.3785,
+              23.3275
+            ],
+            [
+              86.3785,
+              23.3365
+            ],
+            [
+              86.3695,
+              23.3365
+            ],
+            [
+              86.3695,
+              23.3275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 15,
+        "ward_name": "Ward 15",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3785,
+              23.3275
+            ],
+            [
+              86.3875,
+              23.3275
+            ],
+            [
+              86.3875,
+              23.3365
+            ],
+            [
+              86.3785,
+              23.3365
+            ],
+            [
+              86.3785,
+              23.3275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 16,
+        "ward_name": "Ward 16",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3425,
+              23.3365
+            ],
+            [
+              86.3515,
+              23.3365
+            ],
+            [
+              86.3515,
+              23.3455
+            ],
+            [
+              86.3425,
+              23.3455
+            ],
+            [
+              86.3425,
+              23.3365
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 17,
+        "ward_name": "Ward 17",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3515,
+              23.3365
+            ],
+            [
+              86.3605,
+              23.3365
+            ],
+            [
+              86.3605,
+              23.3455
+            ],
+            [
+              86.3515,
+              23.3455
+            ],
+            [
+              86.3515,
+              23.3365
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 18,
+        "ward_name": "Ward 18",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3605,
+              23.3365
+            ],
+            [
+              86.3695,
+              23.3365
+            ],
+            [
+              86.3695,
+              23.3455
+            ],
+            [
+              86.3605,
+              23.3455
+            ],
+            [
+              86.3605,
+              23.3365
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 19,
+        "ward_name": "Ward 19",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3695,
+              23.3365
+            ],
+            [
+              86.3785,
+              23.3365
+            ],
+            [
+              86.3785,
+              23.3455
+            ],
+            [
+              86.3695,
+              23.3455
+            ],
+            [
+              86.3695,
+              23.3365
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 20,
+        "ward_name": "Ward 20",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3785,
+              23.3365
+            ],
+            [
+              86.3875,
+              23.3365
+            ],
+            [
+              86.3875,
+              23.3455
+            ],
+            [
+              86.3785,
+              23.3455
+            ],
+            [
+              86.3785,
+              23.3365
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 21,
+        "ward_name": "Ward 21",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3425,
+              23.3455
+            ],
+            [
+              86.3515,
+              23.3455
+            ],
+            [
+              86.3515,
+              23.3545
+            ],
+            [
+              86.3425,
+              23.3545
+            ],
+            [
+              86.3425,
+              23.3455
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 22,
+        "ward_name": "Ward 22",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3515,
+              23.3455
+            ],
+            [
+              86.3605,
+              23.3455
+            ],
+            [
+              86.3605,
+              23.3545
+            ],
+            [
+              86.3515,
+              23.3545
+            ],
+            [
+              86.3515,
+              23.3455
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "ward_id": 23,
+        "ward_name": "Ward 23",
+        "municipality": "Purulia Municipality",
+        "mla": "Sudip Kumar Mukherjee (Purulia Vidhan Sabha)",
+        "mp": "Jyotirmay Singh Mahato (Purulia Lok Sabha)"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              86.3605,
+              23.3455
+            ],
+            [
+              86.3695,
+              23.3455
+            ],
+            [
+              86.3695,
+              23.3545
+            ],
+            [
+              86.3605,
+              23.3545
+            ],
+            [
+              86.3605,
+              23.3455
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
