@@ -1,25 +1,26 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { fetchComplaints, subscribeToComplaints } from './lib/complaints';
 import { isConfigured } from './lib/supabase';
+import { demoComplaints, isDemo } from './lib/demo';
 import { buildWardStats, totals as computeTotals } from './lib/wardStats';
 import { STR } from './lib/i18n';
 import Dropdown from './components/Dropdown';
-import StatCard from './components/StatCard';
-import WardBar from './components/WardBar';
-import DecorativeMap from './components/DecorativeMap';
-import MapView from './components/MapView';
+import WardCard from './components/WardCard';
+import MapTab from './components/MapTab';
 import ReportSheet from './components/ReportSheet';
+import DigestSheet from './components/DigestSheet';
+import SocialMenu from './components/SocialMenu';
 
 const SEV_KEYS = ['minor', 'moderate', 'severe', 'critical'];
 
 export default function App() {
   const [lang, setLang] = useState('en');
   const [view, setView] = useState('list'); // list | map
-  const [mapMode, setMapMode] = useState('overview'); // overview | interactive
   const [sevIdx, setSevIdx] = useState(0);
   const [statusIdx, setStatusIdx] = useState(0);
   const [showBanner, setShowBanner] = useState(true);
   const [showReport, setShowReport] = useState(false);
+  const [showDigest, setShowDigest] = useState(false);
   const [complaints, setComplaints] = useState([]);
   const [live, setLive] = useState(false);
 
@@ -37,12 +38,18 @@ export default function App() {
     });
   }, []);
 
-  useEffect(() => {
-    fetchComplaints().then(setComplaints).catch(() => {});
-  }, []);
+  const demo = isDemo();
 
   useEffect(() => {
-    if (!isConfigured) return undefined;
+    if (demo) {
+      setComplaints(demoComplaints());
+      return;
+    }
+    fetchComplaints().then(setComplaints).catch(() => {});
+  }, [demo]);
+
+  useEffect(() => {
+    if (!isConfigured || demo) return undefined;
     return subscribeToComplaints({
       onInsert: (row) => {
         mergeComplaint(row);
@@ -50,23 +57,26 @@ export default function App() {
       },
       onUpdate: mergeComplaint,
     });
-  }, [mergeComplaint]);
+  }, [mergeComplaint, demo]);
 
   const totals = useMemo(() => computeTotals(complaints), [complaints]);
-  const wardStats = useMemo(() => buildWardStats(complaints), [complaints]);
-
-  const filtered = useMemo(() => {
-    let rows = wardStats;
-    if (sevIdx > 0) rows = rows.filter((r) => r.sev === SEV_KEYS[sevIdx - 1]);
-    if (statusIdx === 1) rows = rows.filter((r) => r.unresolved > 0);
-    if (statusIdx === 2) rows = rows.filter((r) => r.resolved > 0);
-    return rows;
-  }, [wardStats, sevIdx, statusIdx]);
-
+  // Include every ward so the List tab is a full ward directory.
+  const wardStats = useMemo(
+    () => buildWardStats(complaints, { includeEmpty: true }),
+    [complaints]
+  );
   const maxReports = useMemo(
     () => wardStats.reduce((m, w) => Math.max(m, w.reports), 0),
     [wardStats]
   );
+
+  const filtered = useMemo(() => {
+    let rows = wardStats;
+    if (sevIdx > 0) rows = rows.filter((r) => r.sev === SEV_KEYS[sevIdx - 1] && r.reports > 0);
+    if (statusIdx === 1) rows = rows.filter((r) => r.unresolved > 0);
+    if (statusIdx === 2) rows = rows.filter((r) => r.resolved > 0);
+    return rows;
+  }, [wardStats, sevIdx, statusIdx]);
 
   return (
     <div className="min-h-screen w-full flex justify-center bg-stone-50 font-body">
@@ -79,13 +89,13 @@ export default function App() {
               <span className="text-red-600"> পুরুলিয়া</span>
             </span>
             <span className="text-xs text-stone-300 font-mono">v1.0.0</span>
-          </div>
-          <div className="flex items-center gap-3">
             {live && (
               <span className="text-green-600 text-xs font-bold" title="Live updates">
                 ● {t.live}
               </span>
             )}
+          </div>
+          <div className="flex items-center gap-3">
             <button
               onClick={() => setLang(bn ? 'en' : 'bn')}
               className={`px-4 py-2 rounded-2xl bg-white border border-stone-200 text-sm font-semibold shadow-sm ${
@@ -94,16 +104,22 @@ export default function App() {
             >
               {bn ? 'English' : 'বাংলা'}
             </button>
+            <SocialMenu />
           </div>
         </div>
 
-        {/* Banner */}
+        {/* Banner → opens weekly digest */}
         {showBanner && (
           <div className="mx-4 mb-4 flex items-center gap-3 rounded-2xl bg-red-50 border border-red-100 px-4 py-3">
-            <span className="text-red-500">✉</span>
-            <span className="text-sm text-stone-600 flex-1">
-              <b className="text-red-600">{t.tagline}</b>
-            </span>
+            <button
+              onClick={() => setShowDigest(true)}
+              className="flex items-center gap-3 flex-1 text-left"
+            >
+              <span className="text-red-500">✉</span>
+              <span className="text-sm text-stone-600">
+                <b className="text-red-600">{t.tagline}</b>
+              </span>
+            </button>
             <button onClick={() => setShowBanner(false)} className="text-stone-300 text-lg">
               ✕
             </button>
@@ -145,73 +161,23 @@ export default function App() {
         </div>
 
         {view === 'map' ? (
-          <div className="px-4">
-            {/* overview / interactive toggle */}
-            <div className="flex rounded-2xl bg-stone-100 p-1 mb-3 w-fit">
-              <button
-                onClick={() => setMapMode('overview')}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold ${
-                  mapMode === 'overview' ? 'bg-white shadow text-stone-900' : 'text-stone-400'
-                }`}
-              >
-                {t.overview}
-              </button>
-              <button
-                onClick={() => setMapMode('interactive')}
-                className={`px-4 py-2 rounded-xl text-sm font-semibold ${
-                  mapMode === 'interactive' ? 'bg-white shadow text-stone-900' : 'text-stone-400'
-                }`}
-              >
-                {t.interactive}
-              </button>
-            </div>
-            {mapMode === 'overview' ? (
-              <DecorativeMap wardStats={wardStats} totals={totals} t={t} />
+          <MapTab
+            complaints={complaints}
+            wardStats={wardStats}
+            totals={totals}
+            maxReports={maxReports}
+            t={t}
+          />
+        ) : (
+          <div className="px-5">
+            {!isConfigured && complaints.length === 0 ? (
+              <div className="py-10 text-center text-stone-400 text-sm">{t.notConfigured}</div>
+            ) : filtered.length === 0 ? (
+              <div className="py-10 text-center text-stone-400 text-sm">{t.emptyWards}</div>
             ) : (
-              <MapView complaints={complaints} />
+              filtered.map((w) => <WardCard key={w.no} ward={w} t={t} />)
             )}
           </div>
-        ) : (
-          <>
-            {/* Stats */}
-            <div className="flex gap-3 px-4 mb-7">
-              <StatCard
-                value={totals.unresolved.toLocaleString()}
-                label={t.unresolved}
-                color="text-red-600"
-                bg="bg-red-50"
-                border="border border-red-100"
-              />
-              <StatCard
-                value={totals.resolved.toLocaleString()}
-                label={t.resolved}
-                color="text-green-600"
-                bg="bg-green-50"
-                border="border border-green-100"
-              />
-              <StatCard
-                value={`${totals.rate}%`}
-                label={t.rate}
-                color="text-stone-800"
-                bg="bg-stone-50"
-                border="border border-stone-100"
-              />
-            </div>
-
-            {/* Worst wards leaderboard */}
-            <div className="px-5">
-              <div className="text-xs font-bold tracking-widest text-stone-400 mb-2">{t.worst}</div>
-              {!isConfigured ? (
-                <div className="py-10 text-center text-stone-400 text-sm">{t.notConfigured}</div>
-              ) : filtered.length === 0 ? (
-                <div className="py-10 text-center text-stone-400 text-sm">{t.emptyWards}</div>
-              ) : (
-                filtered.map((w, i) => (
-                  <WardBar key={w.no} rank={i + 1} ward={w} maxReports={maxReports} t={t} />
-                ))
-              )}
-            </div>
-          </>
         )}
 
         {/* Report CTA */}
@@ -233,13 +199,9 @@ export default function App() {
         </div>
 
         {showReport && (
-          <ReportSheet
-            lang={lang}
-            t={t}
-            onClose={() => setShowReport(false)}
-            onSubmitted={mergeComplaint}
-          />
+          <ReportSheet lang={lang} t={t} onClose={() => setShowReport(false)} onSubmitted={mergeComplaint} />
         )}
+        {showDigest && <DigestSheet lang={lang} t={t} onClose={() => setShowDigest(false)} />}
       </div>
     </div>
   );

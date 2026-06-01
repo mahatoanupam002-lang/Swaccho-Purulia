@@ -48,6 +48,26 @@ export const STR = {
     oobBody:
       'Swaccho Purulia currently covers the Purulia Municipality area. If your area falls under a panchayat or another municipality, please reach out to them directly for cleanup.',
     oobNote: 'You can still browse reports and explore the map.',
+    // digest / newsletter
+    digestTitle: 'Swaccho Purulia Weekly',
+    digestBody:
+      "Every week, get the latest civic reports, worst wards, and the councillors with the biggest backlogs, straight to your inbox. Made for concerned citizens, journalists, and anyone watching Purulia closely.",
+    digestChips: ['Weekly stats', 'Worst wards', 'Councillor backlogs', 'Live map link'],
+    digestSubscribers: 'residents already subscribe',
+    emailLabel: 'YOUR EMAIL',
+    emailPlaceholder: 'you@example.com',
+    nameLabel: 'NAME',
+    nameOptional: '(OPTIONAL)',
+    namePlaceholder: 'What should we call you?',
+    subscribe: 'Subscribe',
+    subscribing: 'Subscribing…',
+    subscribed: "You're subscribed. Thank you!",
+    digestFinePrint: 'We send one email a week. Unsubscribe anytime with one click.',
+    invalidEmail: 'Please enter a valid email.',
+    // ward card expand
+    reportsWord: 'reports',
+    open: 'open',
+    councillorLabel: 'Councillor',
   },
   bn: {
     tagline: 'পুরুলিয়ার নাগরিকদের সাথে সমস্যা ট্র্যাক করুন',
@@ -92,8 +112,34 @@ export const STR = {
     oobBody:
       'স্বচ্ছ পুরুলিয়া বর্তমানে পুরুলিয়া পৌরসভা এলাকা কভার করে। আপনার এলাকা পঞ্চায়েত বা অন্য পৌরসভার অধীনে থাকলে, পরিচ্ছন্নতার জন্য সরাসরি তাদের সাথে যোগাযোগ করুন।',
     oobNote: 'আপনি এখনও রিপোর্ট দেখতে এবং ম্যাপ ঘুরে দেখতে পারেন।',
+    digestTitle: 'স্বচ্ছ পুরুলিয়া সাপ্তাহিক',
+    digestBody:
+      'প্রতি সপ্তাহে সর্বশেষ নাগরিক রিপোর্ট, সবচেয়ে খারাপ ওয়ার্ড এবং সবচেয়ে বেশি ব্যাকলগ থাকা কাউন্সিলরদের তথ্য সরাসরি আপনার ইনবক্সে পান। সচেতন নাগরিক, সাংবাদিক এবং পুরুলিয়ার উপর নজর রাখা সকলের জন্য।',
+    digestChips: ['সাপ্তাহিক পরিসংখ্যান', 'খারাপ ওয়ার্ড', 'কাউন্সিলর ব্যাকলগ', 'লাইভ ম্যাপ লিঙ্ক'],
+    digestSubscribers: 'জন বাসিন্দা ইতিমধ্যে সাবস্ক্রাইব করেছেন',
+    emailLabel: 'আপনার ইমেল',
+    emailPlaceholder: 'you@example.com',
+    nameLabel: 'নাম',
+    nameOptional: '(ঐচ্ছিক)',
+    namePlaceholder: 'আপনাকে কী বলে ডাকব?',
+    subscribe: 'সাবস্ক্রাইব করুন',
+    subscribing: 'সাবস্ক্রাইব হচ্ছে…',
+    subscribed: 'আপনি সাবস্ক্রাইব করেছেন। ধন্যবাদ!',
+    digestFinePrint: 'আমরা সপ্তাহে একটি ইমেল পাঠাই। যেকোনো সময় এক ক্লিকে আনসাবস্ক্রাইব করুন।',
+    invalidEmail: 'একটি সঠিক ইমেল লিখুন।',
+    reportsWord: 'রিপোর্ট',
+    open: 'অমীমাংসিত',
+    councillorLabel: 'কাউন্সিলর',
   },
 };
+
+// Social links shown in the header dropdown. Replace with real Swaccho Purulia
+// handles when available.
+export const SOCIAL_LINKS = [
+  { label: 't.me/swacchopurulia', href: 'https://t.me/swacchopurulia', icon: '✈️' },
+  { label: 'x.com/swacchopurulia', href: 'https://x.com/swacchopurulia', icon: '𝕏' },
+  { label: 'instagram.com/swacchopurulia', href: 'https://instagram.com/swacchopurulia', icon: '📷' },
+];
 
 // Issue categories with bilingual labels.
 export const CATEGORIES = [
