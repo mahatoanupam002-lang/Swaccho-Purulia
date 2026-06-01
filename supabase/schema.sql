@@ -43,6 +43,21 @@ create policy "anon insert complaints"
 -- granted here. Do those with the service-role key from a trusted admin
 -- context, or add an authenticated-admin policy.
 
+-- 2b. Realtime --------------------------------------------------------------
+-- Stream INSERT/UPDATE events to the browser so the public map and leaderboard
+-- update live for every viewer (see src/lib/complaints.js subscribeToComplaints).
+do $$
+begin
+  if not exists (
+    select 1 from pg_publication_tables
+    where pubname = 'supabase_realtime'
+      and schemaname = 'public'
+      and tablename = 'complaints'
+  ) then
+    alter publication supabase_realtime add table public.complaints;
+  end if;
+end $$;
+
 -- 3. Storage bucket for photos ----------------------------------------------
 insert into storage.buckets (id, name, public)
 values ('complaint-photos', 'complaint-photos', true)
