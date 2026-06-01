@@ -76,6 +76,38 @@ export async function fetchComplaints({ limit = 500 } = {}) {
 }
 
 /**
+ * Subscribe to live complaint changes via Supabase Realtime so the map and
+ * leaderboard update for everyone without a refresh.
+ *
+ * Requires the table to be added to the `supabase_realtime` publication
+ * (see supabase/schema.sql).
+ *
+ * @param {{ onInsert?: (row: object) => void, onUpdate?: (row: object) => void }} handlers
+ * @returns {() => void} unsubscribe function
+ */
+export function subscribeToComplaints({ onInsert, onUpdate } = {}) {
+  if (!isConfigured) return () => {};
+
+  const channel = supabase
+    .channel('public:complaints')
+    .on(
+      'postgres_changes',
+      { event: 'INSERT', schema: 'public', table: TABLE },
+      (payload) => onInsert?.(payload.new)
+    )
+    .on(
+      'postgres_changes',
+      { event: 'UPDATE', schema: 'public', table: TABLE },
+      (payload) => onUpdate?.(payload.new)
+    )
+    .subscribe();
+
+  return () => {
+    supabase.removeChannel(channel);
+  };
+}
+
+/**
  * Aggregate complaints into a per-ward leaderboard (most reported first).
  */
 export function buildLeaderboard(complaints) {

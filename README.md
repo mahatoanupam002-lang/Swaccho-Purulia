@@ -28,6 +28,9 @@ Mirrors the NammaKasa lightweight, serverless approach:
 3. **Data integrity** — the mapped complaint (image URL, ward id, official
    details) is inserted into the `complaints` table, powering the public map
    (`src/components/MapView.jsx`) and ward leaderboard.
+4. **Live updates** — Supabase Realtime streams new/updated complaints to every
+   open browser, so the map and leaderboard refresh instantly without a reload
+   (`subscribeToComplaints` in `src/lib/complaints.js`).
 
 ## Getting started
 
@@ -54,6 +57,22 @@ Then open http://localhost:5173.
    read, anonymous insert), and the public `complaint-photos` storage bucket.
 3. Copy your project **URL** and **anon public key** (Settings → API) into
    `.env.local`.
+
+## Deployment (auto-deploy to Vercel)
+
+The repo is connected to the `swaccho-purulia` Vercel project via Vercel's
+**native Git integration**, so deploys are fully automatic — no GitHub Actions
+workflow or `VERCEL_TOKEN` needed:
+
+- **push to `main`** → production deploy (the live website)
+- **pull request to `main`** → preview deploy (review the change before merge)
+
+`vercel.json` pins the Vite framework and the SPA rewrite.
+
+One-time setup — **Vercel project env vars**: in the Vercel project settings
+(Settings → Environment Variables) add `VITE_SUPABASE_URL`,
+`VITE_SUPABASE_ANON_KEY` and `VITE_SUPABASE_BUCKET` so the built site talks to
+Supabase. (Vite inlines `VITE_*` vars into the bundle, so use the anon key.)
 
 ## Ward boundary data ⚠️
 
