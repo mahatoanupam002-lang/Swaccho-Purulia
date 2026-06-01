@@ -1,5 +1,6 @@
 import { supabase, BUCKET, isConfigured } from './supabase';
 import { findWard } from './wards';
+import { compressImage } from './image';
 
 const TABLE = 'complaints';
 
@@ -7,12 +8,14 @@ const TABLE = 'complaints';
  * Upload a photo to Supabase Storage and return its public URL.
  */
 async function uploadPhoto(file) {
-  const ext = (file.name?.split('.').pop() || 'jpg').toLowerCase();
+  // Resize/re-encode client-side before upload to save storage and bandwidth.
+  const photo = await compressImage(file);
+  const ext = (photo.name?.split('.').pop() || 'jpg').toLowerCase();
   const path = `${new Date().getFullYear()}/${crypto.randomUUID()}.${ext}`;
 
   const { error } = await supabase.storage
     .from(BUCKET)
-    .upload(path, file, { contentType: file.type || 'image/jpeg', upsert: false });
+    .upload(path, photo, { contentType: photo.type || 'image/jpeg', upsert: false });
 
   if (error) throw new Error(`Photo upload failed: ${error.message}`);
 
