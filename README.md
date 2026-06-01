@@ -74,14 +74,50 @@ One-time setup — **Vercel project env vars**: in the Vercel project settings
 `VITE_SUPABASE_ANON_KEY` and `VITE_SUPABASE_BUCKET` so the built site talks to
 Supabase. (Vite inlines `VITE_*` vars into the bundle, so use the anon key.)
 
+### Enabling true PR auto-merge
+
+GitHub only lets you turn on a PR's "auto-merge" when there's a **required
+status check** pending — which means `main` needs a branch-protection rule.
+Set this up once (GitHub UI; it can't be done from the CLI here):
+
+1. **Settings → Branches → Add branch ruleset** (or "Add classic branch
+   protection rule"), targeting `main`.
+2. Enable **Require status checks to pass before merging**, and select the
+   Vercel check (e.g. **Vercel** / **Vercel Preview Comments**) as required.
+   This guarantees the preview build is green before any merge.
+3. (Optional) Enable **Require a pull request before merging** and
+   **Require approvals** if you want review gating.
+4. **Settings → General → Pull Requests → Allow auto-merge**.
+
+After that, on each PR click **Enable auto-merge** (or it can be enabled
+programmatically) and GitHub will squash-merge it automatically once the
+required Vercel check passes — which then triggers the production deploy.
+Without a required check, a green PR is simply "mergeable" and is merged
+directly rather than via auto-merge.
+
 ## Ward boundary data ⚠️
 
-`src/data/purulia-wards.json` currently contains **placeholder** ward polygons
-(a 23-cell grid over Purulia town) with placeholder MLA/MP names. Before going
-live, replace it with real Purulia Municipality ward boundaries (e.g. digitised
-from the municipality or OpenStreetMap relations) and verify the elected
-officials against ECI / municipality records. The GeoJSON shape and properties
-(`ward_id`, `ward_name`, `mla`, `mp`) just need to be preserved.
+`src/data/purulia-wards.json` contains **placeholder** ward polygons — a 23-cell
+grid anchored on the verified OSM "Purulia" town node (23.32919, 86.36724) —
+with placeholder MLA/MP names.
+
+**Why still placeholder:** OpenStreetMap does *not* currently have ward-level
+boundaries for Purulia. A check of the Overpass API found only the Purulia
+**district** (`admin_level=5`) and the **Purulia‑I / Purulia‑II** blocks
+(`admin_level=6`); there is no municipality (`admin_level=8`) relation and no
+ward polygons (`admin_level=9/10`). So authentic per-ward boundaries can't be
+auto-sourced from open data yet.
+
+To go live with real data, obtain ward boundaries from one of:
+
+- the **Purulia Municipality** / WB SUDA (often a PDF ward map to digitise), or
+- **manual digitisation** in [geojson.io](https://geojson.io) tracing the
+  official ward map, or
+- contributing the boundaries to **OpenStreetMap** and re-querying Overpass.
+
+Then drop the result in as `src/data/purulia-wards.json`, preserving the
+properties (`ward_id`, `ward_name`, `mla`, `mp`) and verifying the elected
+officials against ECI / municipality records.
 
 ## Project structure
 
