@@ -12,6 +12,8 @@ export const isConfigured = Boolean(url && anonKey);
 
 export const supabase = isConfigured
   ? createClient(url, anonKey, {
-      auth: { persistSession: false }, // submissions are anonymous
+      // Sessions persist so the admin magic-link sign-in survives the redirect.
+      // Anonymous reporting is unaffected — it just uses the anon role.
+      auth: { persistSession: true, detectSessionInUrl: true, autoRefreshToken: true },
     })
   : null;

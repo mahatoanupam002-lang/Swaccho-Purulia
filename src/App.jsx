@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { fetchComplaints, subscribeToComplaints } from './lib/complaints';
 import { isConfigured } from './lib/supabase';
 import { demoComplaints, isDemo } from './lib/demo';
+import { isAdminRoute } from './lib/admin';
+import AdminPanel from './components/AdminPanel';
 import { buildWardStats, totals as computeTotals } from './lib/wardStats';
 import { STR } from './lib/i18n';
 import Dropdown from './components/Dropdown';
@@ -14,6 +16,11 @@ import SocialMenu from './components/SocialMenu';
 const SEV_KEYS = ['minor', 'moderate', 'severe', 'critical'];
 
 export default function App() {
+  if (isAdminRoute()) return <AdminPanel />;
+  return <Dashboard />;
+}
+
+function Dashboard() {
   const [lang, setLang] = useState('en');
   const [view, setView] = useState('list'); // list | map
   const [sevIdx, setSevIdx] = useState(0);
