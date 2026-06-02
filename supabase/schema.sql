@@ -39,9 +39,36 @@ create policy "anon insert complaints"
   on public.complaints for insert
   with check (status = 'reported');
 
--- Note: updates/deletes (e.g. an official marking an issue resolved) are NOT
--- granted here. Do those with the service-role key from a trusted admin
--- context, or add an authenticated-admin policy.
+-- Note: citizen inserts are limited to status='reported' above. Officials mark
+-- issues in_progress/resolved via the admin allowlist policy below.
+
+-- 2a. Admin allowlist + status updates --------------------------------------
+-- Add an admin by email AFTER they have signed in once via Supabase Auth:
+--   insert into public.admins (email) values ('official@example.com');
+create table if not exists public.admins (
+  email      text primary key,
+  created_at timestamptz not null default now()
+);
+alter table public.admins enable row level security;
+-- No anon policies: the allowlist is managed via the SQL editor / service role.
+
+-- True when the current authenticated user is on the admin allowlist.
+create or replace function public.is_admin()
+  returns boolean
+  language sql
+  security definer
+  set search_path = public
+  as $$ select exists (
+    select 1 from public.admins where email = (auth.jwt() ->> 'email')
+  ) $$;
+grant execute on function public.is_admin() to anon, authenticated;
+
+-- Allow admins to update a complaint's status (e.g. mark resolved).
+drop policy if exists "admin update complaints" on public.complaints;
+create policy "admin update complaints"
+  on public.complaints for update
+  using (public.is_admin())
+  with check (status in ('reported', 'in_progress', 'resolved'));
 
 -- 2b. Realtime --------------------------------------------------------------
 -- Stream INSERT/UPDATE events to the browser so the public map and leaderboard

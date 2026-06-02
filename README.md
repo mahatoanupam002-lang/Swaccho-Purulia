@@ -73,6 +73,25 @@ and never used in normal operation.
 3. Copy your project **URL** and **anon public key** (Settings → API) into
    `.env.local`.
 
+## Admin — resolving reports
+
+Officials mark reports `in_progress` / `resolved` (making the resolved count and
+resolution rate real) via a built-in admin panel at **`/?admin=1`**.
+
+Access is allowlist-gated:
+
+1. Visit `/?admin=1` and sign in with the official's email (Supabase Auth sends
+   a magic link). Enable the Email provider in Supabase → Authentication.
+2. Add that email to the allowlist in the SQL editor:
+   ```sql
+   insert into public.admins (email) values ('official@example.com');
+   ```
+3. Reload `/?admin=1` — the official can now Start / Resolve / Reopen reports.
+
+A Postgres RLS policy (`admin update complaints`) enforces that only allowlisted
+users can change status; everyone else is read-only. Status changes broadcast
+over Realtime, so the public map and leaderboard update instantly.
+
 ## Deployment (auto-deploy to Vercel)
 
 The repo is connected to the `swaccho-purulia` Vercel project via Vercel's
