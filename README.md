@@ -135,23 +135,36 @@ directly rather than via auto-merge.
 grid anchored on the verified OSM "Purulia" town node (23.32919, 86.36724) —
 with placeholder MLA/MP names.
 
-**Why still placeholder:** OpenStreetMap does *not* currently have ward-level
-boundaries for Purulia. A check of the Overpass API found only the Purulia
-**district** (`admin_level=5`) and the **Purulia‑I / Purulia‑II** blocks
-(`admin_level=6`); there is no municipality (`admin_level=8`) relation and no
-ward polygons (`admin_level=9/10`). So authentic per-ward boundaries can't be
-auto-sourced from open data yet.
+**Why still placeholder:** OpenStreetMap does *not* have ward-level boundaries
+for Purulia. Overpass queries (including `admin_level=10` within the Purulia
+area) return **zero** ward features — OSM only has the Purulia **district**
+(`admin_level=5`) and the **Purulia‑I / Purulia‑II** blocks (`admin_level=6`).
+So authentic per-ward boundaries cannot be auto-sourced from open data.
 
-To go live with real data, obtain ward boundaries from one of:
+Real boundaries must come from an official source:
 
-- the **Purulia Municipality** / WB SUDA (often a PDF ward map to digitise), or
-- **manual digitisation** in [geojson.io](https://geojson.io) tracing the
-  official ward map, or
-- contributing the boundaries to **OpenStreetMap** and re-querying Overpass.
+- **SUDA West Bengal** / **WBSDI (WBSAC)** — municipal ward layers, usually
+  inside AMRUT/PMAY DPRs (sometimes a 1:16,000 PDF to georeference & trace), or
+- a **shapefile / KML** from the municipality, or
+- manual digitisation in QGIS / [geojson.io](https://geojson.io) over a
+  satellite base layer.
 
-Then drop the result in as `src/data/purulia-wards.json`, preserving the
-properties (`ward_id`, `ward_name`, `mla`, `mp`) and verifying the elected
-officials against ECI / municipality records.
+### Importing real boundaries
+
+Once you have the wards as **GeoJSON** (QGIS, `ogr2ogr` or
+[mapshaper](https://mapshaper.org) convert SHP/KML → GeoJSON), normalise them
+into the app's format with the built-in importer:
+
+```bash
+npm run import-wards -- path/to/wards.geojson \
+  --id-prop=WARD_NO --name-prop=WARD_NAME --zone-prop=ZONE \
+  --councillors=councillors.csv     # optional CSV: "ward,councillor[,mla,mp]"
+```
+
+This writes `src/data/purulia-wards.json` with the required properties
+(`ward_id`, `ward_name`, `zone`, `mla`, `mp`), sorted by ward number. Then run
+`npm run dev`, file a test report, and confirm it maps to the right ward.
+Verify councillor/MLA/MP names against ECI / municipality records.
 
 ## Project structure
 
@@ -181,7 +194,9 @@ src/
   data/
     purulia-wards.json    # ward boundary GeoJSON (placeholder)
 supabase/
-  schema.sql              # complaints + subscribers + RLS + storage policies
+  schema.sql              # complaints + subscribers + admins + RLS + storage
+scripts/
+  import-wards.mjs        # normalise a real ward GeoJSON into the app format
 ```
 
 ### Customising
