@@ -1,40 +1,45 @@
 {
   "type": "FeatureCollection",
-  "name": "purulia_wards_placeholder",
+  "name": "purulia_wards_approximate",
+  "note": "APPROXIMATE — estimated from the SUDA 1:16,000 land-use map, not survey-accurate. Replace with the official shapefile via `npm run import-wards`.",
   "features": [
     {
       "type": "Feature",
       "properties": {
         "ward_id": 1,
         "ward_name": "Ward 1",
-        "zone": "South",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3447378,
-              23.3066882
+              86.338091,
+              23.328025
             ],
             [
-              86.3537378,
-              23.3066882
+              86.355392,
+              23.333612
             ],
             [
-              86.3537378,
-              23.3156882
+              86.3555,
+              23.333897
             ],
             [
-              86.3447378,
-              23.3156882
+              86.3555,
+              23.335736
             ],
             [
-              86.3447378,
-              23.3066882
+              86.341432,
+              23.342803
+            ],
+            [
+              86.338091,
+              23.328025
             ]
           ]
         ]
@@ -45,34 +50,42 @@
       "properties": {
         "ward_id": 2,
         "ward_name": "Ward 2",
-        "zone": "South",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3537378,
-              23.3066882
+              86.342864,
+              23.349136
             ],
             [
-              86.3627378,
-              23.3066882
+              86.341432,
+              23.342803
             ],
             [
-              86.3627378,
-              23.3156882
+              86.3555,
+              23.335736
             ],
             [
-              86.3537378,
-              23.3156882
+              86.356313,
+              23.336909
             ],
             [
-              86.3537378,
-              23.3066882
+              86.357527,
+              23.350637
+            ],
+            [
+              86.356199,
+              23.353854
+            ],
+            [
+              86.342864,
+              23.349136
             ]
           ]
         ]
@@ -83,34 +96,34 @@
       "properties": {
         "ward_id": 3,
         "ward_name": "Ward 3",
-        "zone": "South",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3627378,
-              23.3066882
+              86.356313,
+              23.336909
             ],
             [
-              86.3717378,
-              23.3066882
+              86.365379,
+              23.338831
             ],
             [
-              86.3717378,
-              23.3156882
+              86.366644,
+              23.344196
             ],
             [
-              86.3627378,
-              23.3156882
+              86.357527,
+              23.350637
             ],
             [
-              86.3627378,
-              23.3066882
+              86.356313,
+              23.336909
             ]
           ]
         ]
@@ -121,34 +134,46 @@
       "properties": {
         "ward_id": 4,
         "ward_name": "Ward 4",
-        "zone": "South",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3717378,
-              23.3066882
+              86.355697,
+              23.329475
             ],
             [
-              86.3807378,
-              23.3066882
+              86.355392,
+              23.333612
             ],
             [
-              86.3807378,
-              23.3156882
+              86.338091,
+              23.328025
             ],
             [
-              86.3717378,
-              23.3156882
+              86.337456,
+              23.325216
             ],
             [
-              86.3717378,
-              23.3066882
+              86.340199,
+              23.321417
+            ],
+            [
+              86.352479,
+              23.324502
+            ],
+            [
+              86.354924,
+              23.327726
+            ],
+            [
+              86.355697,
+              23.329475
             ]
           ]
         ]
@@ -159,34 +184,38 @@
       "properties": {
         "ward_id": 5,
         "ward_name": "Ward 5",
-        "zone": "South",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3807378,
-              23.3066882
+              86.362,
+              23.325588
             ],
             [
-              86.3897378,
-              23.3066882
+              86.355697,
+              23.329475
             ],
             [
-              86.3897378,
-              23.3156882
+              86.354924,
+              23.327726
             ],
             [
-              86.3807378,
-              23.3156882
+              86.359569,
+              23.320723
             ],
             [
-              86.3807378,
-              23.3066882
+              86.362,
+              23.320527
+            ],
+            [
+              86.362,
+              23.325588
             ]
           ]
         ]
@@ -197,34 +226,38 @@
       "properties": {
         "ward_id": 6,
         "ward_name": "Ward 6",
-        "zone": "West",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3447378,
-              23.3156882
+              86.349894,
+              23.307994
             ],
             [
-              86.3537378,
-              23.3156882
+              86.35124,
+              23.307738
             ],
             [
-              86.3537378,
-              23.3246882
+              86.3552,
+              23.319376
             ],
             [
-              86.3447378,
-              23.3246882
+              86.352479,
+              23.324502
             ],
             [
-              86.3447378,
-              23.3156882
+              86.340199,
+              23.321417
+            ],
+            [
+              86.349894,
+              23.307994
             ]
           ]
         ]
@@ -235,34 +268,46 @@
       "properties": {
         "ward_id": 7,
         "ward_name": "Ward 7",
-        "zone": "South",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3537378,
-              23.3156882
+              86.362,
+              23.320527
             ],
             [
-              86.3627378,
-              23.3156882
+              86.359569,
+              23.320723
             ],
             [
-              86.3627378,
-              23.3246882
+              86.3552,
+              23.319376
             ],
             [
-              86.3537378,
-              23.3246882
+              86.35124,
+              23.307738
             ],
             [
-              86.3537378,
-              23.3156882
+              86.356661,
+              23.306711
+            ],
+            [
+              86.362483,
+              23.319873
+            ],
+            [
+              86.36243,
+              23.320076
+            ],
+            [
+              86.362,
+              23.320527
             ]
           ]
         ]
@@ -273,34 +318,34 @@
       "properties": {
         "ward_id": 8,
         "ward_name": "Ward 8",
-        "zone": "South",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3627378,
-              23.3156882
+              86.364926,
+              23.305144
             ],
             [
-              86.3717378,
-              23.3156882
+              86.366093,
+              23.317016
             ],
             [
-              86.3717378,
-              23.3246882
+              86.362483,
+              23.319873
             ],
             [
-              86.3627378,
-              23.3246882
+              86.356661,
+              23.306711
             ],
             [
-              86.3627378,
-              23.3156882
+              86.364926,
+              23.305144
             ]
           ]
         ]
@@ -311,34 +356,42 @@
       "properties": {
         "ward_id": 9,
         "ward_name": "Ward 9",
-        "zone": "South",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3717378,
-              23.3156882
+              86.372608,
+              23.303688
             ],
             [
-              86.3807378,
-              23.3156882
+              86.372608,
+              23.303688
             ],
             [
-              86.3807378,
-              23.3246882
+              86.379524,
+              23.305982
             ],
             [
-              86.3717378,
-              23.3246882
+              86.370087,
+              23.317836
             ],
             [
-              86.3717378,
-              23.3156882
+              86.366093,
+              23.317016
+            ],
+            [
+              86.364926,
+              23.305144
+            ],
+            [
+              86.372608,
+              23.303688
             ]
           ]
         ]
@@ -349,34 +402,38 @@
       "properties": {
         "ward_id": 10,
         "ward_name": "Ward 10",
-        "zone": "East",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3807378,
-              23.3156882
+              86.364162,
+              23.326921
             ],
             [
-              86.3897378,
-              23.3156882
+              86.362,
+              23.325588
             ],
             [
-              86.3897378,
-              23.3246882
+              86.362,
+              23.320527
             ],
             [
-              86.3807378,
-              23.3246882
+              86.36243,
+              23.320076
             ],
             [
-              86.3807378,
-              23.3156882
+              86.369365,
+              23.32356
+            ],
+            [
+              86.364162,
+              23.326921
             ]
           ]
         ]
@@ -387,34 +444,42 @@
       "properties": {
         "ward_id": 11,
         "ward_name": "Ward 11",
-        "zone": "West",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3447378,
-              23.3246882
+              86.39424,
+              23.310864
             ],
             [
-              86.3537378,
-              23.3246882
+              86.397173,
+              23.324487
             ],
             [
-              86.3537378,
-              23.3336882
+              86.377645,
+              23.332371
             ],
             [
-              86.3447378,
-              23.3336882
+              86.373539,
+              23.328426
             ],
             [
-              86.3447378,
-              23.3246882
+              86.372684,
+              23.324882
+            ],
+            [
+              86.389303,
+              23.309226
+            ],
+            [
+              86.39424,
+              23.310864
             ]
           ]
         ]
@@ -425,34 +490,38 @@
       "properties": {
         "ward_id": 12,
         "ward_name": "Ward 12",
-        "zone": "West",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3537378,
-              23.3246882
+              86.389303,
+              23.309226
             ],
             [
-              86.3627378,
-              23.3246882
+              86.372684,
+              23.324882
             ],
             [
-              86.3627378,
-              23.3336882
+              86.37093,
+              23.32356
             ],
             [
-              86.3537378,
-              23.3336882
+              86.370087,
+              23.317836
             ],
             [
-              86.3537378,
-              23.3246882
+              86.379524,
+              23.305982
+            ],
+            [
+              86.389303,
+              23.309226
             ]
           ]
         ]
@@ -463,34 +532,34 @@
       "properties": {
         "ward_id": 13,
         "ward_name": "Ward 13",
-        "zone": "Central",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3627378,
-              23.3246882
+              86.364348,
+              23.327449
             ],
             [
-              86.3717378,
-              23.3246882
+              86.369186,
+              23.330183
             ],
             [
-              86.3717378,
-              23.3336882
+              86.366538,
+              23.333176
             ],
             [
-              86.3627378,
-              23.3336882
+              86.363274,
+              23.3317
             ],
             [
-              86.3627378,
-              23.3246882
+              86.364348,
+              23.327449
             ]
           ]
         ]
@@ -501,34 +570,46 @@
       "properties": {
         "ward_id": 14,
         "ward_name": "Ward 14",
-        "zone": "East",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3717378,
-              23.3246882
+              86.364348,
+              23.327449
             ],
             [
-              86.3807378,
-              23.3246882
+              86.364162,
+              23.326921
             ],
             [
-              86.3807378,
-              23.3336882
+              86.369365,
+              23.32356
             ],
             [
-              86.3717378,
-              23.3336882
+              86.37093,
+              23.32356
             ],
             [
-              86.3717378,
-              23.3246882
+              86.372684,
+              23.324882
+            ],
+            [
+              86.373539,
+              23.328426
+            ],
+            [
+              86.369186,
+              23.330183
+            ],
+            [
+              86.364348,
+              23.327449
             ]
           ]
         ]
@@ -539,34 +620,46 @@
       "properties": {
         "ward_id": 15,
         "ward_name": "Ward 15",
-        "zone": "East",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3807378,
-              23.3246882
+              86.364348,
+              23.327449
             ],
             [
-              86.3897378,
-              23.3246882
+              86.363274,
+              23.3317
             ],
             [
-              86.3897378,
-              23.3336882
+              86.3555,
+              23.333897
             ],
             [
-              86.3807378,
-              23.3336882
+              86.355392,
+              23.333612
             ],
             [
-              86.3807378,
-              23.3246882
+              86.355697,
+              23.329475
+            ],
+            [
+              86.362,
+              23.325588
+            ],
+            [
+              86.364162,
+              23.326921
+            ],
+            [
+              86.364348,
+              23.327449
             ]
           ]
         ]
@@ -577,34 +670,38 @@
       "properties": {
         "ward_id": 16,
         "ward_name": "Ward 16",
-        "zone": "West",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3447378,
-              23.3336882
+              86.398566,
+              23.330957
             ],
             [
-              86.3537378,
-              23.3336882
+              86.388989,
+              23.352607
             ],
             [
-              86.3537378,
-              23.3426882
+              86.376553,
+              23.33654
             ],
             [
-              86.3447378,
-              23.3426882
+              86.377645,
+              23.332371
             ],
             [
-              86.3447378,
-              23.3336882
+              86.397173,
+              23.324487
+            ],
+            [
+              86.398566,
+              23.330957
             ]
           ]
         ]
@@ -615,34 +712,42 @@
       "properties": {
         "ward_id": 17,
         "ward_name": "Ward 17",
-        "zone": "North",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3537378,
-              23.3336882
+              86.369365,
+              23.32356
             ],
             [
-              86.3627378,
-              23.3336882
+              86.36243,
+              23.320076
             ],
             [
-              86.3627378,
-              23.3426882
+              86.362483,
+              23.319873
             ],
             [
-              86.3537378,
-              23.3426882
+              86.366093,
+              23.317016
             ],
             [
-              86.3537378,
-              23.3336882
+              86.370087,
+              23.317836
+            ],
+            [
+              86.37093,
+              23.32356
+            ],
+            [
+              86.369365,
+              23.32356
             ]
           ]
         ]
@@ -653,34 +758,38 @@
       "properties": {
         "ward_id": 18,
         "ward_name": "Ward 18",
-        "zone": "North",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3627378,
-              23.3336882
+              86.367087,
+              23.3369
             ],
             [
-              86.3717378,
-              23.3336882
+              86.375915,
+              23.3369
             ],
             [
-              86.3717378,
-              23.3426882
+              86.370518,
+              23.34529
             ],
             [
-              86.3627378,
-              23.3426882
+              86.366644,
+              23.344196
             ],
             [
-              86.3627378,
-              23.3336882
+              86.365379,
+              23.338831
+            ],
+            [
+              86.367087,
+              23.3369
             ]
           ]
         ]
@@ -691,34 +800,46 @@
       "properties": {
         "ward_id": 19,
         "ward_name": "Ward 19",
-        "zone": "North",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3717378,
-              23.3336882
+              86.369186,
+              23.330183
             ],
             [
-              86.3807378,
-              23.3336882
+              86.373539,
+              23.328426
             ],
             [
-              86.3807378,
-              23.3426882
+              86.377645,
+              23.332371
             ],
             [
-              86.3717378,
-              23.3426882
+              86.376553,
+              23.33654
             ],
             [
-              86.3717378,
-              23.3336882
+              86.375915,
+              23.3369
+            ],
+            [
+              86.367087,
+              23.3369
+            ],
+            [
+              86.366538,
+              23.333176
+            ],
+            [
+              86.369186,
+              23.330183
             ]
           ]
         ]
@@ -729,34 +850,46 @@
       "properties": {
         "ward_id": 20,
         "ward_name": "Ward 20",
-        "zone": "East",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3807378,
-              23.3336882
+              86.363274,
+              23.3317
             ],
             [
-              86.3897378,
-              23.3336882
+              86.366538,
+              23.333176
             ],
             [
-              86.3897378,
-              23.3426882
+              86.367087,
+              23.3369
             ],
             [
-              86.3807378,
-              23.3426882
+              86.365379,
+              23.338831
             ],
             [
-              86.3807378,
-              23.3336882
+              86.356313,
+              23.336909
+            ],
+            [
+              86.3555,
+              23.335736
+            ],
+            [
+              86.3555,
+              23.333897
+            ],
+            [
+              86.363274,
+              23.3317
             ]
           ]
         ]
@@ -767,34 +900,46 @@
       "properties": {
         "ward_id": 21,
         "ward_name": "Ward 21",
-        "zone": "North",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3447378,
-              23.3426882
+              86.364496,
+              23.35679
             ],
             [
-              86.3537378,
-              23.3426882
+              86.364496,
+              23.35679
             ],
             [
-              86.3537378,
-              23.3516882
+              86.356199,
+              23.353854
             ],
             [
-              86.3447378,
-              23.3516882
+              86.357527,
+              23.350637
             ],
             [
-              86.3447378,
-              23.3426882
+              86.366644,
+              23.344196
+            ],
+            [
+              86.370518,
+              23.34529
+            ],
+            [
+              86.376858,
+              23.354846
+            ],
+            [
+              86.364496,
+              23.35679
             ]
           ]
         ]
@@ -805,34 +950,42 @@
       "properties": {
         "ward_id": 22,
         "ward_name": "Ward 22",
-        "zone": "North",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3537378,
-              23.3426882
+              86.388832,
+              23.352963
             ],
             [
-              86.3627378,
-              23.3426882
+              86.376858,
+              23.354846
             ],
             [
-              86.3627378,
-              23.3516882
+              86.370518,
+              23.34529
             ],
             [
-              86.3537378,
-              23.3516882
+              86.375915,
+              23.3369
             ],
             [
-              86.3537378,
-              23.3426882
+              86.376553,
+              23.33654
+            ],
+            [
+              86.388989,
+              23.352607
+            ],
+            [
+              86.388832,
+              23.352963
             ]
           ]
         ]
@@ -843,34 +996,34 @@
       "properties": {
         "ward_id": 23,
         "ward_name": "Ward 23",
-        "zone": "North",
         "municipality": "Purulia Municipality",
         "mla": "Sudip Kumar Mukherjee",
-        "mp": "Jyotirmay Singh Mahato"
+        "mp": "Jyotirmay Singh Mahato",
+        "approximate": true
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              86.3627378,
-              23.3426882
+              86.359569,
+              23.320723
             ],
             [
-              86.3717378,
-              23.3426882
+              86.354924,
+              23.327726
             ],
             [
-              86.3717378,
-              23.3516882
+              86.352479,
+              23.324502
             ],
             [
-              86.3627378,
-              23.3516882
+              86.3552,
+              23.319376
             ],
             [
-              86.3627378,
-              23.3426882
+              86.359569,
+              23.320723
             ]
           ]
         ]

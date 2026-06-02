@@ -131,9 +131,18 @@ directly rather than via auto-merge.
 
 ## Ward boundary data ⚠️
 
-`src/data/purulia-wards.json` contains **placeholder** ward polygons — a 23-cell
-grid anchored on the verified OSM "Purulia" town node (23.32919, 86.36724) —
-with placeholder MLA/MP names.
+`src/data/purulia-wards.json` contains **approximate** ward polygons — a
+23-cell Voronoi tessellation whose ward positions were estimated by eye from the
+official **SUDA "Land Use Map of Purulia Municipality" (1:16,000)**, anchored on
+the town centre / Saheb Bandh lake and clipped to an approximate municipal
+outline. Every feature is flagged `"approximate": true`.
+
+> ⚠️ **Not survey-accurate.** The SUDA map is a low-resolution raster with no
+> coordinate graticule, so it can't be georeferenced precisely. These polygons
+> have the right ward *count* and roughly the right *relative* layout — fine for
+> demoing ward attribution, but **replace them with the official shapefile**
+> before any real use. Regenerate with `npm run gen-wards`
+> (`scripts/gen-approx-wards.mjs`).
 
 **Why still placeholder:** OpenStreetMap does *not* have ward-level boundaries
 for Purulia. Overpass queries (including `admin_level=10` within the Purulia
@@ -197,6 +206,7 @@ supabase/
   schema.sql              # complaints + subscribers + admins + RLS + storage
 scripts/
   import-wards.mjs        # normalise a real ward GeoJSON into the app format
+  gen-approx-wards.mjs    # regenerate the approximate wards (npm run gen-wards)
 ```
 
 ### Customising
