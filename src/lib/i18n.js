@@ -133,13 +133,13 @@ export const STR = {
   },
 };
 
-// Social links shown in the header dropdown. Replace with real Swaccho Purulia
-// handles when available.
-export const SOCIAL_LINKS = [
-  { label: 't.me/swacchopurulia', href: 'https://t.me/swacchopurulia', icon: '✈️' },
-  { label: 'x.com/swacchopurulia', href: 'https://x.com/swacchopurulia', icon: '𝕏' },
-  { label: 'instagram.com/swacchopurulia', href: 'https://instagram.com/swacchopurulia', icon: '📷' },
-];
+// Social links shown in the header dropdown. Add the real Swaccho Purulia
+// handles here; the header icon only appears when at least one link is set, so
+// no placeholder/404 links ship to production. Example:
+//   { label: 't.me/yourhandle',          href: 'https://t.me/yourhandle',          icon: '✈️' },
+//   { label: 'x.com/yourhandle',         href: 'https://x.com/yourhandle',         icon: '𝕏' },
+//   { label: 'instagram.com/yourhandle', href: 'https://instagram.com/yourhandle', icon: '📷' },
+export const SOCIAL_LINKS = [];
 
 // Issue categories with bilingual labels.
 export const CATEGORIES = [
