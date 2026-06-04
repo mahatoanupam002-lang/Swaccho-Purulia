@@ -5,6 +5,9 @@ export default function SocialMenu() {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
 
+  // Only valid links (no placeholder/empty hrefs).
+  const links = SOCIAL_LINKS.filter((s) => s.href && /^https?:\/\//.test(s.href));
+
   useEffect(() => {
     if (!open) return undefined;
     const onClick = (e) => {
@@ -13,6 +16,9 @@ export default function SocialMenu() {
     document.addEventListener('mousedown', onClick);
     return () => document.removeEventListener('mousedown', onClick);
   }, [open]);
+
+  // Hide the header icon entirely until real handles are configured.
+  if (links.length === 0) return null;
 
   return (
     <div className="relative" ref={ref}>
@@ -25,7 +31,7 @@ export default function SocialMenu() {
       </button>
       {open && (
         <div className="absolute right-0 z-40 mt-2 w-64 rounded-2xl bg-white border border-stone-200 shadow-xl overflow-hidden">
-          {SOCIAL_LINKS.map((s) => (
+          {links.map((s) => (
             <a
               key={s.href}
               href={s.href}
